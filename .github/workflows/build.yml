@@ -21,11 +21,13 @@ jobs:
           pip install pyinstaller customtkinter python-docx lxml pywin32 openpyxl
 
       - name: Compilar .exe
-        run: pyinstaller ddm_manager.spec
+        run: |
+          cd DDMManagerPy
+          pyinstaller ddm_manager.spec
 
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
           name: DDM_Manager_Metalfrio
-          path: dist/DDM_Manager_Metalfrio.exe
+          path: DDMManagerPy/dist/DDM_Manager_Metalfrio.exe
           retention-days: 30

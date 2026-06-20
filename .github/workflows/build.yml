@@ -19,11 +19,11 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restaurar pacotes NuGet
-        run: dotnet restore DDMManager.csproj
+        run: dotnet restore DDMManager/DDMManager.csproj
 
       - name: Publicar .exe
         run: |
-          dotnet publish DDMManager.csproj `
+          dotnet publish DDMManager/DDMManager.csproj `
             -c Release `
             -r win-x64 `
             --self-contained true `

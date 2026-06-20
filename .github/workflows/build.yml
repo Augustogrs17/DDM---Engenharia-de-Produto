@@ -1,0 +1,39 @@
+name: Build DDM Manager (C#)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restaurar pacotes NuGet
+        run: dotnet restore DDMManager.csproj
+
+      - name: Publicar .exe
+        run: |
+          dotnet publish DDMManager.csproj `
+            -c Release `
+            -r win-x64 `
+            --self-contained true `
+            -p:PublishSingleFile=true `
+            -p:EnableCompressionInSingleFile=true `
+            -o ./dist
+
+      - name: Upload executável
+        uses: actions/upload-artifact@v4
+        with:
+          name: DDM_Manager_Metalfrio_CSharp
+          path: dist/DDM_Manager_Metalfrio.exe
+          retention-days: 30

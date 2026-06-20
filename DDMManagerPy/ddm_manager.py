@@ -853,37 +853,37 @@ class DDMApp(ctk.CTk):
         footer.grid_propagate(False)
         footer.grid_columnconfigure(4, weight=1)
 
-        pad = {"padx": 6, "pady": 12}
+        py = {"pady": 12}
         ctk.CTkButton(footer, text="📄   Gerar DOCX  [Ctrl+D]",
                       font=FONT_BTN, fg_color=BG_CARD, text_color=ACCENT,
                       hover_color=BORDER, border_width=1, border_color=ACCENT,
                       command=self._gerar_docx
-                      ).grid(row=0, column=0, **pad, padx=(12,6))
+                      ).grid(row=0, column=0, padx=(12,6), **py)
         ctk.CTkButton(footer, text="📋   Combinar DOCX",
                       font=FONT_BTN, fg_color=BG_CARD, text_color=ACCENT2,
                       hover_color=BORDER, border_width=1, border_color=ACCENT2,
                       command=self._combinar_docx
-                      ).grid(row=0, column=1, **pad)
+                      ).grid(row=0, column=1, padx=6, **py)
         ctk.CTkButton(footer, text="📑   Gerar PDF + Abrir  [Ctrl+P]",
                       font=FONT_BTN, fg_color=ACCENT, text_color=BG_HDR,
                       hover_color=ACCENT2,
                       command=self._gerar_pdf
-                      ).grid(row=0, column=2, **pad)
+                      ).grid(row=0, column=2, padx=6, **py)
         ctk.CTkButton(footer, text="🖨️   Imprimir direto",
                       font=FONT_BTN, fg_color=BG_CARD, text_color=SUCCESS,
                       hover_color=BORDER, border_width=1, border_color=SUCCESS,
                       command=self._imprimir
-                      ).grid(row=0, column=3, **pad)
+                      ).grid(row=0, column=3, padx=6, **py)
         ctk.CTkButton(footer, text="📊   Relatório",
                       font=FONT_BTN, fg_color=BG_CARD, text_color=GOLD,
                       hover_color=BORDER, border_width=1, border_color=GOLD,
                       command=self._relatorio
-                      ).grid(row=0, column=4, **pad, sticky="w")
+                      ).grid(row=0, column=4, padx=6, sticky="w", **py)
         ctk.CTkButton(footer, text="✖   Sair",
                       font=FONT_BTN, fg_color=BG_CARD, text_color=ERROR,
                       hover_color=BORDER,
                       command=self._sair
-                      ).grid(row=0, column=5, **pad, padx=(6,12), sticky="e")
+                      ).grid(row=0, column=5, padx=(6,12), sticky="e", **py)
 
     # ── Preferências ─────────────────────────────────────────────────────────
 

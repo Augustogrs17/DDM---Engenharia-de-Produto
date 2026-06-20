@@ -1,0 +1,49 @@
+<Application x:Class="DDMManager.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             StartupUri="Views/MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- ModernWPF: Fluent Design completo -->
+                <ui:ThemeResources />
+                <ui:XamlControlsResources />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Cores corporativas Metalfrio -->
+            <Color x:Key="MetalfrioAccentColor">#00D4FF</Color>
+            <SolidColorBrush x:Key="MetalfrioAccent"   Color="#00D4FF"/>
+            <SolidColorBrush x:Key="MetalfrioAccent2"  Color="#0EA5E9"/>
+            <SolidColorBrush x:Key="MetalfrioSuccess"  Color="#10B981"/>
+            <SolidColorBrush x:Key="MetalfrioWarn"     Color="#F59E0B"/>
+            <SolidColorBrush x:Key="MetalfrioError"    Color="#EF4444"/>
+            <SolidColorBrush x:Key="MetalfrioGold"     Color="#FBBF24"/>
+
+            <!-- Estilo de botão primário -->
+            <Style x:Key="PrimaryButton" TargetType="Button"
+                   BasedOn="{StaticResource DefaultButtonStyle}">
+                <Setter Property="Background"   Value="#00D4FF"/>
+                <Setter Property="Foreground"   Value="#060D1A"/>
+                <Setter Property="FontWeight"   Value="SemiBold"/>
+                <Setter Property="Padding"      Value="24,10"/>
+                <Setter Property="BorderThickness" Value="0"/>
+            </Style>
+
+            <!-- Estilo de botão secundário -->
+            <Style x:Key="SecondaryButton" TargetType="Button"
+                   BasedOn="{StaticResource DefaultButtonStyle}">
+                <Setter Property="Foreground" Value="#00D4FF"/>
+                <Setter Property="Padding"    Value="20,10"/>
+            </Style>
+
+            <!-- Estilo de botão destrutivo -->
+            <Style x:Key="DangerButton" TargetType="Button"
+                   BasedOn="{StaticResource DefaultButtonStyle}">
+                <Setter Property="Foreground" Value="#EF4444"/>
+                <Setter Property="Padding"    Value="12,6"/>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

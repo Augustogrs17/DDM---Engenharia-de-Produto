@@ -1,0 +1,35 @@
+name: Build DDM Manager (Python)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'ddm_manager.py'
+      - 'ddm_manager.spec'
+      - '.github/workflows/build.yml'
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependências
+        run: |
+          pip install pyinstaller customtkinter python-docx lxml pywin32 openpyxl pypdf
+
+      - name: Compilar .exe
+        run: pyinstaller ddm_manager.spec
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: DDM_Manager_Metalfrio
+          path: dist/DDM_Manager_Metalfrio.exe
+          retention-days: 30
